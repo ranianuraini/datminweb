@@ -42,7 +42,7 @@ data_hf = pd.read_csv("https://raw.githubusercontent.com/ranianuraini/datminweb/
 st.write("Dataset Heart Failure : (https://raw.githubusercontent.com/ranianuraini/datminweb/main/fetal_health.csv) ", data_hf)
 
 st.write('Dataset Description :')
-st.write('1. baseline value: Baseline Fetal Heart Rate (FHR)')
+st.write('1. baseline_value: Baseline Fetal Heart Rate (FHR)')
 st.write('2. accelerations: Number of accelerations per second')
 st.write('3. fetal_movement: Number of fetal movements per second')
 st.write('4. uterine_contractions: Number of uterine contractions per second')
@@ -141,7 +141,7 @@ ax.bar(['Decision Tree', 'Random Forest','SVM'],[accuracy_dt, accuracy_rf, accur
 plt.show()
 st.pyplot(fig)
 
-baseline value = st.sidebar.number_input("baseline value =", min_value=106 ,max_value=160)
+baseline_value = st.sidebar.number_input("baseline_value =", min_value=106 ,max_value=160)
 accelerations = st.sidebar.number_input("accelerations =", min_value=0, max_value=0.2)
 fetal_movement = st.sidebar.number_input("fetal_movement =", min_value=0 , max_value=0.48)
 uterine_contractions = st.sidebar.number_input("uterine_contractions =", min_value=0, max_value=0.01)
@@ -155,7 +155,7 @@ submit = st.sidebar.button("Submit")
 
 if submit :
     if algoritma == 'Decision Tree' :
-        X_new = np.array([[baseline value, accelerations, fetal_movement, uterine_contractions, light_decelerations, severe_decelerations, prolongued_decelerations,
+        X_new = np.array([[baseline_value, accelerations, fetal_movement, uterine_contractions, light_decelerations, severe_decelerations, prolongued_decelerations,
         abnormal_short_term_variability, mean_value_of_short_term_variability, spercentage_of_time_with_abnormal_long_term_variabilityex]])
         prediksi = decision_tree.predict(X_new)
         if prediksi == 1 :
@@ -165,7 +165,7 @@ if submit :
             st.sidebar.write("""# Hasil Prediksi :
              rekiso meninggal rendah""")
     elif algoritma == 'Random Forest' :
-        X_new = np.array([[baseline value, accelerations, fetal_movement, uterine_contractions, light_decelerations, severe_decelerations, prolongued_decelerations,
+        X_new = np.array([[baseline_value, accelerations, fetal_movement, uterine_contractions, light_decelerations, severe_decelerations, prolongued_decelerations,
         abnormal_short_term_variability, mean_value_of_short_term_variability, spercentage_of_time_with_abnormal_long_term_variabilityex]])
         prediksi = random_forest.predict(X_new)
         if prediksi == 1 :
@@ -175,7 +175,7 @@ if submit :
             st.sidebar.write("""# Hasil Prediksi :
             rekiso meninggal rendah""")
     else :
-        X_new = np.array([[baseline value, accelerations, fetal_movement, uterine_contractions, light_decelerations, severe_decelerations, prolongued_decelerations,
+        X_new = np.array([[baseline_value, accelerations, fetal_movement, uterine_contractions, light_decelerations, severe_decelerations, prolongued_decelerations,
         abnormal_short_term_variability, mean_value_of_short_term_variability, spercentage_of_time_with_abnormal_long_term_variabilityex]])
         prediksi = SVM.predict(X_new)
         if prediksi == 1 :
