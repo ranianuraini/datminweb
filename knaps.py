@@ -135,7 +135,7 @@ result_df = result_df.reset_index(drop=True)
 result_df.head(9)
 st.write(result_df)
 
-fig = plt.figure()
+#fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.bar(['Decision Tree', 'Random Forest','SVM'],[accuracy_dt, accuracy_rf, accuracy_SVM])
 plt.show()
